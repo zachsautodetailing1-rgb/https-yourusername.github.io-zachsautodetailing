@@ -1,4 +1,4 @@
-// Run only after the DOM is fully loaded
+// Run only after the DOM is fully loaded 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Script loaded and DOM ready");
 
@@ -82,17 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
         ✅ You booked: <strong>${pkg}</strong><br>
         📅 Date: ${dateInput.value}<br>
         💵 Price: $${price}<br>
-        <button onclick="payNow('${pkg}', ${price})">
-          Pay Now
-        </button>
+        <a href="https://square.link/u/7gMxxB0R" target="_blank">
+          <button>Pay Now</button>
+        </a>
       `;
     }
-  };
-
-  // Simulated payment
-  window.payNow = function(pkg, price) {
-    alert(`Payment simulated: $${price} for ${pkg} — Thank you!`);
-    console.log("Payment simulated:", pkg, price);
   };
 
 });
