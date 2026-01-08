@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Zachs auto Detailing </title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zach's Auto Detailing</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- WELCOME HERO -->
+<section id="welcome" class="page active">
+  <div class="hero-content">
+    <h1>Welcome to Zach’s Auto Detailing</h1>
+    <p>Premium auto detailing for cars, trucks, and SUVs. Book your appointment with ease!</p>
+    <button onclick="showPage('pricing')">View Pricing</button>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="page">
+  <h2>About Zach’s Auto Detailing</h2>
+  <p>We provide top-quality detailing to make your vehicle shine inside and out. Attention to detail is our specialty!</p>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="page">
+  <h2>Our Services</h2>
+  <div class="services-grid">
+    <div class="service-box">
+      <h3>Exterior Wash</h3>
+      <p>Hand wash, wheel cleaning, tire shine, drying</p>
+    </div>
+    <div class="service-box">
+      <h3>Interior Clean</h3>
+      <p>Vacuum, wipe surfaces, clean windows, deodorize</p>
+    </div>
+    <div class="service-box">
+      <h3>Full Detail</h3>
+      <p>Complete interior + exterior detailing with wax & polish</p>
+    </div>
+    <div class="service-box">
+      <h3>Paint Protection</h3>
+      <p>Sealant for lasting shine and protection</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="page">
+  <h2>Our Packages</h2>
+
+  <div class="pricing-box">
+    <h3>Exterior Wash</h3>
+    <p class="price">$45</p>
+    <p class="desc">Hand wash, wheels cleaned, tire shine, drying, window cleaning, door jamb wipe-down</p>
+  </div>
+
+  <div class="pricing-box">
+    <h3>Interior Clean</h3>
+    <p class="price">$70</p>
+    <p class="desc">Vacuum carpets & seats, wipe surfaces, clean windows, deodorize interior, sanitize high-touch areas</p>
+  </div>
+
+  <div class="pricing-box">
+    <h3>Deluxe Detail</h3>
+    <p class="price">$150</p>
+    <p class="desc">
+      Includes:
+      <ul>
+        <li>Hand wash & dry</li>
+        <li>Clay bar treatment</li>
+        <li>Wax or sealant</li>
+        <li>Interior deep clean</li>
+        <li>Windows inside & out</li>
+        <li>Tire & wheel shine</li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="pricing-box">
+    <h3>Full Interior Restoration</h3>
+    <p class="price">$200</p>
+    <p class="desc">
+      Includes:
+      <ul>
+        <li>Deep carpet & upholstery shampoo</li>
+        <li>Stain removal & spot treatment</li>
+        <li>Leather & vinyl conditioning</li>
+        <li>Odor elimination</li>
+        <li>Sanitization of vents & high-touch areas</li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="pricing-box">
+    <h3>Exterior Shine Package</h3>
+    <p class="price">$120</p>
+    <p class="desc">
+      Includes:
+      <ul>
+        <li>Hand wash & dry</li>
+        <li>Clay bar treatment</li>
+        <li>Paint polish & swirl removal</li>
+        <li>Sealant/wax for shine</li>
+        <li>Tire dressing & wheel polish</li>
+      </ul>
+    </p>
+  </div>
+
+  <button onclick="showPage('signin')">Book Now</button>
+</section>
+
+<!-- SIGN IN -->
+<section id="signin" class="page">
+  <h2>Sign In</h2>
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="email" id="email" placeholder="Your Email">
+  <button onclick="signIn()">Continue</button>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="page">
+  <h2>Book Your Appointment</h2>
+
+  <label>Select Package:</label>
+  <select id="package" onchange="updatePrice()">
+    <option value="Exterior Wash">Exterior Wash</option>
+    <option value="Interior Clean">Interior Clean</option>
+    <option value="Deluxe Detail">Deluxe Detail</option>
+    <option value="Full Interior Restoration">Full Interior Restoration</option>
+    <option value="Exterior Shine Package">Exterior Shine Package</option>
+  </select>
+
+  <p id="priceDisplay">Price: $45</p>
+
+  <label>Select Date:</label>
+  <input type="date" id="date">
+
+  <button onclick="confirmBooking()">Book & Pay</button>
+
+  <p id="confirmation"></p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="page">
+  <h2>Contact Zach's Auto Detailing</h2>
+  <a href="tel:15551234567" class="phone-btn">Call or Text</a>
+  <a href="mailto:zachsautodetailing1@gmail.com?subject=Auto%20Detailing%20Inquiry" class="email-btn">Email Us</a>
+</section>
+
+<!-- FOOTER -->
+<footer></footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
