@@ -1,92 +1,31 @@
-// Run only after the DOM is fully loaded 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Script loaded and DOM ready");
+<div id="booking-page">
+  <h2>Book a Package</h2>
 
-  // Navigation functions
-  window.showPage = function(pageId) {
-    console.log("Navigating to:", pageId);
-    document.querySelectorAll(".page").forEach(page => {
-      page.classList.remove("active");
-    });
-    const target = document.getElementById(pageId);
-    if (target) target.classList.add("active");
-  };
+  <label for="package">Choose a package:</label>
+  <select id="package" onchange="updatePrice()">
+    <option value="Exterior Wash">Exterior Wash</option>
+    <option value="Interior Clean">Interior Clean</option>
+    <option value="Deluxe Detail">Deluxe Detail</option>
+    <option value="Full Interior Restoration">Full Interior Restoration</option>
+    <option value="Exterior Shine Package">Exterior Shine Package</option>
+  </select>
 
-  window.goToPricing = function() {
-    showPage("pricing");
-  };
+  <p id="priceDisplay">Price: $45</p>
 
-  window.goToSignIn = function() {
-    showPage("signin");
-  };
+  <label for="date">Select a date:</label>
+  <input type="date" id="date">
 
-  // Sign-in function
-  window.signIn = function() {
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
+  <button onclick="confirmBooking()">Confirm Booking</button>
 
-    if (!name || !email) {
-      alert("Please enter both name and email");
-      return;
-    }
-    console.log("Signed in:", name, email);
-    showPage("booking");
-  };
+  <div id="confirmation"></div>
 
-  // Package prices
-  const packages = {
-    "Exterior Wash": 45,
-    "Interior Clean": 70,
-    "Deluxe Detail": 150,
-    "Full Interior Restoration": 200,
-    "Exterior Shine Package": 120
-  };
+  <!-- Payment form will appear here -->
+  <div id="payment-container" style="margin-top:20px; display:none;">
+    <div id="card-container"></div>
+    <button id="card-button">Pay Now</button>
+    <div id="payment-status"></div>
+  </div>
+</div>
 
-  // Update price display
-  window.updatePrice = function() {
-    const pkg = document.getElementById("package").value;
-    const price = packages[pkg] || 0;
-    const disp = document.getElementById("priceDisplay");
-    if (disp) disp.textContent = "Price: $" + price;
-    console.log("Price updated:", pkg, price);
-  };
-
-  // Block weekends and holiday examples
-  function isDateBlocked(dateStr) {
-    const blockedDates = ["2026-01-01", "2026-12-25"]; // add more if needed
-    const d = new Date(dateStr);
-    const day = d.getDay(); // Sunday=0, Saturday=6
-    return day === 0 || day === 6 || blockedDates.includes(dateStr);
-  }
-
-  window.confirmBooking = function() {
-    const dateInput = document.getElementById("date");
-    const pkg = document.getElementById("package").value;
-    const conf = document.getElementById("confirmation");
-
-    if (!dateInput || !dateInput.value) {
-      alert("Please select a date");
-      return;
-    }
-
-    if (isDateBlocked(dateInput.value)) {
-      alert("Sorry, we are closed on this date. Choose another.");
-      return;
-    }
-
-    const price = packages[pkg];
-    console.log("Booking confirmed:", pkg, dateInput.value, price);
-
-    if (conf) {
-      conf.innerHTML = `
-        ✅ You booked: <strong>${pkg}</strong><br>
-        📅 Date: ${dateInput.value}<br>
-        💵 Price: $${price}<br>
-        <a href="https://square.link/u/7gMxxB0R" target="_blank">
-          <button>Pay Now</button>
-        </a>
-      `;
-    }
-  };
-
-});
+<!-- Include Square Web Payments SDK -->
+<script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
