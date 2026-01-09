@@ -1,85 +1,95 @@
-* {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+/* ==============================
+   PROFESSIONAL HERO SECTION
+============================== */
 
-body {
-  margin: 0;
-  background: #f5f5f5;
-  color: #222;
-}
-
-.page {
-  display: none;
+#welcome {
+  min-height: 100vh;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("images/hero.jpg") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 20px;
 }
 
-.page.active {
-  display: block;
+.hero-content {
+  max-width: 600px;
+  color: #fff;
 }
 
-h1, h2, h3 {
-  text-align: center;
+.hero-content h1 {
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
+
+.hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.hero-content button {
+  margin-top: 25px;
+  background: #e10600;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ==============================
+   MODERN SECTION STYLING
+============================== */
+
+section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.service-box h3,
+.pricing-box h3 {
+  color: #111;
+  font-size: 1.2rem;
+}
+
+/* ==============================
+   PREMIUM BUTTONS
+============================== */
 
 button {
-  width: 100%;
-  padding: 15px;
-  margin-top: 15px;
-  background: #111;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  transition: all 0.2s ease;
 }
 
-button:active {
-  transform: scale(0.98);
+button:hover {
+  opacity: 0.9;
 }
 
-input, select {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.phone-btn {
+  background: #25d366;
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px;
-}
-
-.service-box,
-.pricing-box {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-.price {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.phone-btn,
 .email-btn {
-  display: block;
-  text-align: center;
   background: #0a7cff;
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 10px;
-  text-decoration: none;
 }
 
-/* DESKTOP */
+/* ==============================
+   DESKTOP IMPROVEMENTS
+============================== */
+
 @media (min-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
   }
 }
