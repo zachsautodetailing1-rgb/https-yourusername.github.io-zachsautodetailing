@@ -1,67 +1,56 @@
 /* ==============================
-   LIGHT GRAY + BLUE THEME
+   HERO IMAGE WITH CENTER TEXT
 ============================== */
 
-body {
-  background-color: #f2f2f2;
-  color: #0a3d91;
-}
-
-/* Sections / cards */
-section.page {
-  background-color: #ffffff;
-  color: #0a3d91;
-}
-
-/* Headings */
-h1, h2, h3 {
-  color: #0a3d91;
-}
-
-/* Paragraph text */
-p, li, label {
-  color: #1f6fd8;
-}
-
-/* Buttons */
-button {
-  background-color: #0a3d91;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-button:hover {
-  background-color: #083070;
-}
-
-/* Inputs */
-input, select {
-  border: 1px solid #ccc;
-}
-
-/* Horizontal divider */
-hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #0a3d91, transparent);
-  margin: 30px 0;
-}
-
-/* Contact buttons */
-.phone-btn {
-  background-color: #1f6fd8;
-}
-
-.email-btn {
-  background-color: #0a3d91;
-}
-
-/* Hero text override */
 #welcome {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("https://images.unsplash.com/photo-1605559424843-9e4c228bf1c5?auto=format&fit=crop&w=1600&q=80")
+    no-repeat center top / cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Centered text */
+.hero-content {
+  max-width: 700px;
   color: #ffffff;
 }
 
-#welcome h1,
-#welcome p {
-  color: #ffffff;
+/* Title */
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
+
+/* Subtitle */
+.hero-content p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+/* Button */
+.hero-content button {
+  margin-top: 25px;
+  background-color: #0a3d91;
+  font-size: 18px;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .hero-content h1 {
+    font-size: 3.2rem;
+  }
+
+  .hero-content p {
+    font-size: 1.25rem;
+  }
+}
+
