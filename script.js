@@ -3,11 +3,6 @@
    GitHub Pages + Stripe Payment Links
 ===================================== */
 
-// ---------- PAGE NAVIGATION ----------
-function showPage(pageId) {
-  document.querySelectorAll(".page").forEach(page => {
-    page.classList.remove("active");
-  });
 
   const target = document.getElementById(pageId);
   if (target) {
@@ -16,14 +11,6 @@ function showPage(pageId) {
   }
 }
 
-// ---------- STRIPE PAYMENT LINKS ----------
-const stripeLinks = {
-  "Exterior Wash": "https://buy.stripe.com/YOUR_LINK_1",
-  "Interior Clean": "https://buy.stripe.com/YOUR_LINK_2",
-  "Deluxe Detail": "https://buy.stripe.com/YOUR_LINK_3",
-  "Full Interior Restoration": "https://buy.stripe.com/YOUR_LINK_4",
-  "Exterior Shine Package": "https://buy.stripe.com/YOUR_LINK_5"
-};
 
 // ---------- PRICES ----------
 const prices = {
