@@ -1,33 +1,65 @@
-// ============================
-// PAGE NAVIGATION
-// ============================
+/* =====================================
+   ZACH'S AUTO DETAILING - MAIN JS
+   GitHub Pages + Stripe Payment Links
+===================================== */
+
+// ---------- PAGE NAVIGATION ----------
 function showPage(pageId) {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.getElementById(pageId).classList.add("active");
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  const target = document.getElementById(pageId);
+  if (target) {
+    target.classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 }
 
-// ============================
-// PRICES
-// ============================
-const prices = {
-  "Exterior Wash": 4500,
-  "Interior Clean": 7000,
-  "Deluxe Detail": 15000,
-  "Full Interior Restoration": 20000,
-  "Exterior Shine Package": 12000
+// ---------- STRIPE PAYMENT LINKS ----------
+const stripeLinks = {
+  "Exterior Wash": "https://buy.stripe.com/YOUR_LINK_1",
+  "Interior Clean": "https://buy.stripe.com/YOUR_LINK_2",
+  "Deluxe Detail": "https://buy.stripe.com/YOUR_LINK_3",
+  "Full Interior Restoration": "https://buy.stripe.com/YOUR_LINK_4",
+  "Exterior Shine Package": "https://buy.stripe.com/YOUR_LINK_5"
 };
 
+// ---------- PRICES ----------
+const prices = {
+  "Exterior Wash": 45,
+  "Interior Clean": 70,
+  "Deluxe Detail": 150,
+  "Full Interior Restoration": 200,
+  "Exterior Shine Package": 120
+};
+
+// ---------- UPDATE PRICE ----------
 function updatePrice() {
-  const pkg = document.getElementById("package").value;
-  document.getElementById("priceDisplay").innerText =
-    `Price: $${prices[pkg] / 100}`;
+  const select = document.getElementById("package");
+  const display = document.getElementById("priceDisplay");
+
+  if (!select || !display) return;
+
+  const selected = select.value;
+  display.textContent = `Price: $${prices[selected]}`;
 }
 
-// ============================
-// STRIPE CHECKOUT
-// ============================
-async function confirmBooking() {
+// ---------- SIGN IN ----------
+function signIn() {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+
+  if (!name || !email) {
+    alert("Please enter your name and email.");
+    return;
+  }
+
+  showPage("booking");
+}
+
+// ---------- BOOK & PAY ----------
+function confirmBooking() {
   const pkg = document.getElementById("package").value;
   const date = document.getElementById("date").value;
 
@@ -36,16 +68,25 @@ async function confirmBooking() {
     return;
   }
 
-  const response = await fetch("/create-checkout-session", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      package: pkg,
-      amount: prices[pkg],
-      date: date
-    })
+  const link = stripeLinks[pkg];
+  if (!link) {
+    alert("Payment link not available.");
+    return;
+  }
+
+  alert(`✅ ${pkg} booked for ${date}\nRedirecting to secure payment…`);
+  window.location.href = link;
+}
+
+// ---------- MOBILE BUTTON PROTECTION ----------
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.disabled = true;
+      setTimeout(() => btn.disabled = false, 600);
+    });
   });
 
-  const session = await response.json();
-  window.location.href = session.url;
-}
+  updatePrice(); // initialize price on load
+});
+
