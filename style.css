@@ -6,7 +6,7 @@
   min-height: 100vh;
   background:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("https://chatgpt.com/backend-api/estuary/content?id=file_000000008ab471fda1f49010e7d9ddee&ts=491110&p=fs&cid=1&sig=3478f8fd289b9eb87f3aaf72077535a0205d89601935d457d2511787b86b4b57&v=0")
+    url(""https://images.unsplash.com/photo-1605559424843-9e4c228bf1c5?auto=format&fit=crop&w=1600&q=80")
     no-repeat center top / cover;
   display: flex;
   align-items: center;
